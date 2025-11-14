@@ -454,7 +454,8 @@ fetchDenominatorCohortSet <- function(cdm,
       cohortSetRef = cohortSetRef |>
         dplyr::mutate(time_at_risk = c("0 to Inf")) |> # this will get overwritten if other tar specified
         dplyr::select(!dplyr::any_of(c("f_levels"))),
-      cohortAttritionRef = cohortAttritionRef
+      cohortAttritionRef = cohortAttritionRef,
+      .softValidation = TRUE
     )
 
   # drop the intermediate tables
